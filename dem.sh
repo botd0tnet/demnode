@@ -1,18 +1,24 @@
 #!/bin/bash
 
-declare -A node
+RED='\033[1;91m' # WARNINGS
+YELLOW='\033[1;93m' # HIGHLIGHTS
+WHITE='\033[1;97m' # LARGER FONT
+LBLUE='\033[1;96m' # HIGHLIGHTS / NUMBERS ...
+LGREEN='\033[1;92m' # SUCCESS
+NOCOLOR='\033[0m' # DEFAULT FONT
+
 dem=0
 
-printf "%b\n\n\n" "${WHITE} Cac node dang chay:"
+printf "%b\n\n\n" "${LGREEN} Cac node dang chay:" "\n\n"
 for(( i=1; i <=50; i++ ))
 do
 	mix='nym-mixnode'
 	nymmixnode=${mix}${i}
 	if [[ ! "$(/usr/sbin/service ${nymmixnode} status)" =~ "inactive" ]]
 	then
-		printf "%b\n\n\n" "${YELLOW} ${i} ${WHITE}"
+		printf "${YELLOW} ${i} ${WHITE}"
 		dem=$(expr $dem + 1)
 	fi
 done
 
-printf "%b\n\n\n" "${WHITE} Tong so node dang chay: ${YELLOW} ${dem} ${WHITE}"
+printf "%b\n\n" "${WHITE} Tong so node dang chay: ${RED} ${dem} ${WHITE}"
