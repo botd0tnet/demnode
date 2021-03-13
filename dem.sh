@@ -9,7 +9,7 @@ NOCOLOR='\033[0m' # DEFAULT FONT
 
 dem=0
 
-printf "%b\n\n\n" "${LGREEN} Cac node dang chay:" "\n\n"
+printf "${LGREEN} Cac node dang chay:" "\n\n"
 for(( i=1; i <=50; i++ ))
 do
 	mix='nym-mixnode'
@@ -17,8 +17,9 @@ do
 	if [[ ! "$(/usr/sbin/service ${nymmixnode} status)" =~ "inactive" ]]
 	then
 		printf "${YELLOW} ${i} ${WHITE}"
+		printf "\n\n"
 		dem=$(expr $dem + 1)
 	fi
 done
 
-printf "%b\n\n" "${WHITE} Tong so node dang chay: ${RED} ${dem} ${WHITE}"
+printf "${LGREEN} Tong so node dang chay: ${RED} ${dem} ${WHITE}"
