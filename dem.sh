@@ -9,7 +9,7 @@ do
 	if [[ ! "$(/usr/sbin/service ${nymmixnode} status)" =~ "inactive" ]]
 	then
 		node[i-1]=i
-		dem++
+		dem=$(expr $dem + 1)
 	fi
 done
 
