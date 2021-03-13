@@ -21,5 +21,6 @@ do
 		dem=$(expr $dem + 1)
 	fi
 done
-printf "\n\n" "${LGREEN} Tong so node dang chay: ${RED} ${dem} ${WHITE}"
+printf "\n\n"
+printf "${LGREEN} Tong so node dang chay: ${RED} ${dem} ${WHITE}"
 printf "\n\n"
